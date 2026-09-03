@@ -19,8 +19,8 @@ COPS = -Wall -Werror -nostdlib -nostartfiles -ffreestanding \
 COPS += -Wno-unused-variable -Wno-unused-but-set-variable # STUDENT_TODO: replace this !STUDENT_SHOULD_WRITE()
 
 # the default debug level, to be overridden by less verbose levels in individual files 
-COPS += -DCONFIG_GLOBAL_DEBUG_LEVEL=10   # verbose
-# COPS += -DCONFIG_GLOBAL_DEBUG_LEVEL=30   # info
+# COPS += -DCONFIG_GLOBAL_DEBUG_LEVEL=10   # verbose
+COPS += -DCONFIG_GLOBAL_DEBUG_LEVEL=30   # info
 # COPS += -DCONFIG_GLOBAL_DEBUG_LEVEL=40   # warning
 
 ASMOPS = -I$(SRC_DIR)  -g 

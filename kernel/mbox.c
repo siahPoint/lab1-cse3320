@@ -1,5 +1,5 @@
-// #define K2_DEBUG_WARN
-#define K2_DEBUG_INFO
+#define K2_DEBUG_WARN
+// #define K2_DEBUG_INFO
 
 /*
  * The mailbox driver (& framebuffer, display) for rpi3.
