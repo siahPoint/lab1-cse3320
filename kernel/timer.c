@@ -222,8 +222,7 @@ static int adjust_sys_timer(void)
 	// the compare reg is only 32 bits so we have to ignore the high 32 bits of
 	// the counter. this is ok even if the low 32 bits have to wrap around 
 	// in order to match TIMER_C1 (cf the isr)	
-// 	put32(TIMER_C1, (unsigned)next);	//!STUDENT_DONOT_SEE
-	/* STUDENT_TODO: your code here */
+	put32(TIMER_C1, (unsigned)next);
 
 	return 0; 
 }
@@ -331,9 +330,9 @@ void sys_timer_irq(void)
 			// W("called, id %d h %lx", t, (unsigned long)timers[t].handler);	
 			// NB: exec the callback w/ timerlock held
 			// quest: virtual timers
-ret = 0; /* STUDENT_TODO: replace this */ // !STUDENT_SHOULD_WRITE(ret = (*h)(t, timers[t].param, timers[t].context);)
+			ret = (*h)(t, timers[t].param, timers[t].context);
 			if (ret==1) { // restart the ktimer in place
-timers[t].elapseat = 0; /* STUDENT_TODO: replace this */ // !STUDENT_SHOULD_WRITE(timers[t].elapseat = cur + TICKPERMS * timers[t].delayms;)
+				timers[t].elapseat = cur + TICKPERMS * timers[t].delayms;
 				adjust_sys_timer(); 
 			} else 
 				timers[t].handler = 0; 

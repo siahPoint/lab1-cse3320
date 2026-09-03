@@ -33,10 +33,9 @@ void kernel_main() {
 
 	if (fb_init() != 0) BUG();          // will show the OS logo
 
-	// test_ktimer();
+	test_ktimer();
 	// test_fb_voffset();               // cycle through color quads
-// 	donut();		// !STUDENT_DONOT_SEE    uses virtual timer for animation
-	donut_simple();
+	donut();
 
 	// quest: pixel donut. call donut_simple()
 	/* to enable it,  irq handler must be modified to call sys_timer_irq_simple() */

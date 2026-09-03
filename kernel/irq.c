@@ -58,9 +58,9 @@ void enable_interrupt_controller(int coreid)
 }
 
 void uart_irq(void); // mini_uart.c
-extern void sys_timer_irq_simple();    // donut.c
+extern void sys_timer_irq();    // timer.c
 
-// quest: pixel donut. call sys_timer_irq_simple() in the right place
+// quest: virtual timers. call sys_timer_irq() in the right place
 // called from hw irq handler (el1_irq, entry.S)
 // call from entry.S, el{0|1}_irq
 #if defined(PLAT_RPI3) || defined(PLAT_RPI3QEMU)
@@ -86,7 +86,7 @@ void handle_irq(void) {
             p1 &= (~IRQ_PENDING_1_AUX); 
         }        
         if (p1 & SYSTEM_TIMER_IRQ_1) {
-            sys_timer_irq_simple();
+            sys_timer_irq();
             p1 &= (~SYSTEM_TIMER_IRQ_1);
         }
         if (p1) {
