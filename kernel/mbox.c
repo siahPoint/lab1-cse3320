@@ -444,7 +444,7 @@ void fb_showpicture()
     // adjust x/y so that the text starts from right below the picture
     x = (the_fb.vwidth-img_fb_width)/2;
     y = the_fb.vheight/2 + img_fb_height/2;
-    fb_print(&x, &y, "UVA OS");    
+    fb_print(&x, &y, "SIAH OS");    
     sprintf(res, " %dx%d", the_fb.width, the_fb.height); // debug info 
     fb_print(&x, &y, res);
 }
