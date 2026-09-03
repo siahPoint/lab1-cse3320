@@ -27,8 +27,7 @@ void kernel_main() {
 	sys_timer_init();                   // kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0);     // coreid
 	// quest: sys_timer irq
-// 	enable_irq();		// !STUDENT_DONOT_SEE
-	/* STUDENT_TODO: your code here */
+	enable_irq();
 
 	generic_timer_init();               // periodic ticks alive
 
@@ -37,14 +36,14 @@ void kernel_main() {
 	// test_ktimer();
 	// test_fb_voffset();               // cycle through color quads
 // 	donut();		// !STUDENT_DONOT_SEE    uses virtual timer for animation
-	/* STUDENT_TODO: your code here */
+	donut_simple();
 
 	// quest: pixel donut. call donut_simple()
 	/* to enable it,  irq handler must be modified to call sys_timer_irq_simple() */
 // 	// donut_simple();		// !STUDENT_DONOT_SEE		directly uses hw timer irq for animation
 	/* STUDENT_TODO: your code here */
 	
-	donut_text();		// textual donut animation via UART
+	// donut_text();		// textual donut animation via UART
 
 	while (1)
 		asm volatile("wfi");            // what happen here?
